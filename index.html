@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="A simple personal book tracker for your reading list.">
+  <title>Book Tracker — Your reading shelf</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Book Tracker home">
+        <span class="brand-mark" aria-hidden="true">b.</span>
+        <span>book<span class="brand-light">tracker</span></span>
+      </a>
+      <span class="topbar-note">A little space for your next chapter.</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR PERSONAL LIBRARY</p>
+      <h1 id="page-title">Every book has<br><span>a place.</span></h1>
+      <p class="hero-copy">Keep track of the stories you want to read, the ones you're in, and the ones you'll remember.</p>
+    </section>
+
+    <section class="stats" aria-label="Reading summary">
+      <article class="stat-card">
+        <span class="stat-label">All books</span>
+        <strong id="total-count">0</strong>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Reading</span>
+        <strong id="reading-count">0</strong>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Finished</span>
+        <strong id="finished-count">0</strong>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <aside class="panel add-panel" aria-labelledby="add-heading">
+        <div class="section-heading">
+          <span class="section-kicker">01 / ADD TO SHELF</span>
+          <h2 id="add-heading">Add a book</h2>
+        </div>
+        <form id="book-form" novalidate>
+          <label for="book-title">Book title <span aria-hidden="true">*</span></label>
+          <input id="book-title" name="title" type="text" placeholder="e.g. The Midnight Library" maxlength="160" required>
+          <small class="field-error" id="title-error"></small>
+
+          <label for="book-author">Author <span aria-hidden="true">*</span></label>
+          <input id="book-author" name="author" type="text" placeholder="e.g. Matt Haig" maxlength="120" required>
+          <small class="field-error" id="author-error"></small>
+
+          <label for="book-status">Reading status</label>
+          <select id="book-status" name="status">
+            <option value="To read">To read</option>
+            <option value="Reading">Reading</option>
+            <option value="Finished">Finished</option>
+          </select>
+
+          <button class="primary-button" type="submit"><span aria-hidden="true">＋</span> Add book</button>
+          <p class="form-note">Your shelf is saved in this browser automatically.</p>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </aside>
+
+      <section class="panel shelf-panel" aria-labelledby="shelf-heading">
+        <div class="shelf-top">
+          <div class="section-heading">
+            <span class="section-kicker">02 / YOUR COLLECTION</span>
+            <h2 id="shelf-heading">Your shelf <span class="shelf-count" id="shelf-count">0</span></h2>
+          </div>
+          <label class="search-box" for="book-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="book-search" type="search" placeholder="Search books or authors" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Filter books by status">
+          <button class="filter-button active" type="button" data-filter="All" aria-pressed="true">All books</button>
+          <button class="filter-button" type="button" data-filter="To read" aria-pressed="false">To read</button>
+          <button class="filter-button" type="button" data-filter="Reading" aria-pressed="false">Reading</button>
+          <button class="filter-button" type="button" data-filter="Finished" aria-pressed="false">Finished</button>
+        </div>
+
+        <div id="book-list" class="book-list" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state">
+          <span class="empty-icon" aria-hidden="true">▤</span>
+          <h3>Your shelf is waiting</h3>
+          <p>Add your first book and start building your reading list.</p>
+        </div>
+        <div id="no-results" class="empty-state hidden">
+          <span class="empty-icon" aria-hidden="true">⌕</span>
+          <h3>No books found</h3>
+          <p>Try another title, author, or status filter.</p>
+          <button class="text-button" id="clear-search" type="button">Clear search and filters</button>
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span>Made for readers, one page at a time.</span>
+      <span>Small list. Big worlds. <span aria-hidden="true">✳</span></span>
+    </footer>
+  </main>
+
+  <template id="book-template">
+    <article class="book-row">
+      <div class="book-spine" aria-hidden="true"><span>✳</span></div>
+      <div class="book-info">
+        <h3 class="book-title"></h3>
+        <p class="book-author"></p>
+        <p class="book-added"></p>
+      </div>
+      <div class="book-actions">
+        <label class="sr-only book-status-label">Reading status</label>
+        <select class="status-select" aria-label="Change reading status">
+          <option value="To read">To read</option>
+          <option value="Reading">Reading</option>
+          <option value="Finished">Finished</option>
+        </select>
+        <button class="delete-button" type="button" aria-label="Delete book" title="Delete book">×</button>
+      </div>
+    </article>
+  </template>
+</body>
+</html>
