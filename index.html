@@ -1,131 +1,15 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f4ef">
-  <meta name="description" content="A simple personal book tracker for your reading list.">
-  <title>Book Tracker — Your reading shelf</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
-</head>
-<body>
-  <main class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="./" aria-label="Book Tracker home">
-        <span class="brand-mark" aria-hidden="true">b.</span>
-        <span>book<span class="brand-light">tracker</span></span>
-      </a>
-      <span class="topbar-note">A little space for your next chapter.</span>
-    </header>
-
-    <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow">YOUR PERSONAL LIBRARY</p>
-      <h1 id="page-title">Every book has<br><span>a place.</span></h1>
-      <p class="hero-copy">Keep track of the stories you want to read, the ones you're in, and the ones you'll remember.</p>
-    </section>
-
-    <section class="stats" aria-label="Reading summary">
-      <article class="stat-card">
-        <span class="stat-label">All books</span>
-        <strong id="total-count">0</strong>
-      </article>
-      <article class="stat-card">
-        <span class="stat-label">Reading</span>
-        <strong id="reading-count">0</strong>
-      </article>
-      <article class="stat-card">
-        <span class="stat-label">Finished</span>
-        <strong id="finished-count">0</strong>
-      </article>
-    </section>
-
-    <section class="content-grid">
-      <aside class="panel add-panel" aria-labelledby="add-heading">
-        <div class="section-heading">
-          <span class="section-kicker">01 / ADD TO SHELF</span>
-          <h2 id="add-heading">Add a book</h2>
-        </div>
-        <form id="book-form" novalidate>
-          <label for="book-title">Book title <span aria-hidden="true">*</span></label>
-          <input id="book-title" name="title" type="text" placeholder="e.g. The Midnight Library" maxlength="160" required>
-          <small class="field-error" id="title-error"></small>
-
-          <label for="book-author">Author <span aria-hidden="true">*</span></label>
-          <input id="book-author" name="author" type="text" placeholder="e.g. Matt Haig" maxlength="120" required>
-          <small class="field-error" id="author-error"></small>
-
-          <label for="book-status">Reading status</label>
-          <select id="book-status" name="status">
-            <option value="To read">To read</option>
-            <option value="Reading">Reading</option>
-            <option value="Finished">Finished</option>
-          </select>
-
-          <button class="primary-button" type="submit"><span aria-hidden="true">＋</span> Add book</button>
-          <p class="form-note">Your shelf is saved in this browser automatically.</p>
-          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
-        </form>
-      </aside>
-
-      <section class="panel shelf-panel" aria-labelledby="shelf-heading">
-        <div class="shelf-top">
-          <div class="section-heading">
-            <span class="section-kicker">02 / YOUR COLLECTION</span>
-            <h2 id="shelf-heading">Your shelf <span class="shelf-count" id="shelf-count">0</span></h2>
-          </div>
-          <label class="search-box" for="book-search">
-            <span aria-hidden="true">⌕</span>
-            <input id="book-search" type="search" placeholder="Search books or authors" autocomplete="off">
-          </label>
-        </div>
-
-        <div class="filter-row" role="group" aria-label="Filter books by status">
-          <button class="filter-button active" type="button" data-filter="All" aria-pressed="true">All books</button>
-          <button class="filter-button" type="button" data-filter="To read" aria-pressed="false">To read</button>
-          <button class="filter-button" type="button" data-filter="Reading" aria-pressed="false">Reading</button>
-          <button class="filter-button" type="button" data-filter="Finished" aria-pressed="false">Finished</button>
-        </div>
-
-        <div id="book-list" class="book-list" aria-live="polite"></div>
-        <div id="empty-state" class="empty-state">
-          <span class="empty-icon" aria-hidden="true">▤</span>
-          <h3>Your shelf is waiting</h3>
-          <p>Add your first book and start building your reading list.</p>
-        </div>
-        <div id="no-results" class="empty-state hidden">
-          <span class="empty-icon" aria-hidden="true">⌕</span>
-          <h3>No books found</h3>
-          <p>Try another title, author, or status filter.</p>
-          <button class="text-button" id="clear-search" type="button">Clear search and filters</button>
-        </div>
-      </section>
-    </section>
-
-    <footer class="footer">
-      <span>Made for readers, one page at a time.</span>
-      <span>Small list. Big worlds. <span aria-hidden="true">✳</span></span>
-    </footer>
-  </main>
-
-  <template id="book-template">
-    <article class="book-row">
-      <div class="book-spine" aria-hidden="true"><span>✳</span></div>
-      <div class="book-info">
-        <h3 class="book-title"></h3>
-        <p class="book-author"></p>
-        <p class="book-added"></p>
-      </div>
-      <div class="book-actions">
-        <label class="sr-only book-status-label">Reading status</label>
-        <select class="status-select" aria-label="Change reading status">
-          <option value="To read">To read</option>
-          <option value="Reading">Reading</option>
-          <option value="Finished">Finished</option>
-        </select>
-        <button class="delete-button" type="button" aria-label="Delete book" title="Delete book">×</button>
-      </div>
-    </article>
-  </template>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#123f3a"><meta name="description" content="A bold, personal home for your reading life."><title>Open Chapter — Your reading life</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script></head>
+<body><div class="site-wrap">
+<header class="topbar"><a class="brand" href="./" aria-label="Open Chapter home"><span class="brand-symbol" aria-hidden="true">O<span>•</span></span><span>OPEN<span class="brand-light">CHAPTER</span></span></a><nav class="top-links" aria-label="Page navigation"><a href="#shelf">MY LIBRARY</a><a href="#add-book">ADD A BOOK <span aria-hidden="true">↗</span></a></nav></header>
+<main>
+<section class="hero" aria-labelledby="page-title"><div class="hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> YOUR READING LIFE, IN ONE PLACE</p><h1 id="page-title">MAKE ROOM<br>FOR <span>ANOTHER</span><br><span class="outline-word">WORLD.</span></h1><p class="hero-description">The books you mean to read. The story you're lost in. The ones that stay with you. Keep them all moving.</p><a class="hero-cta" href="#shelf">EXPLORE YOUR SHELF <span aria-hidden="true">↓</span></a></div>
+<div class="hero-art" aria-label="Illustration of a stack of colourful books"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><span class="art-star star-one" aria-hidden="true">✳</span><span class="art-star star-two" aria-hidden="true">✦</span><span class="art-label">A GOOD BOOK<br>CHANGES THE VIEW.</span><div class="book-stack stack-back"><span>THE ART OF<br>GETTING LOST</span><i>03</i></div><div class="book-stack stack-mid"><span>WILD<br>IDEAS</span><i>02</i></div><div class="book-stack stack-front"><span>ONE MORE<br>CHAPTER</span><i>01</i></div><div class="art-ground"></div></div><div class="hero-index"><span>01</span> COLLECT STORIES <span class="index-line"></span> KEEP TURNING PAGES</div></section>
+<section class="reading-strip" aria-label="Reading summary"><div class="strip-intro"><span class="strip-icon" aria-hidden="true">✳</span><span>YOUR LITTLE<br>READING UNIVERSE</span></div><article class="stat-card"><span class="stat-label">ON YOUR SHELF</span><strong id="total-count">0</strong><span class="stat-foot">BOOKS & COUNTING</span></article><article class="stat-card"><span class="stat-label">CURRENTLY IN IT</span><strong id="reading-count">0</strong><span class="stat-foot">CHAPTERS UNDERWAY</span></article><article class="stat-card"><span class="stat-label">WORLDS EXPLORED</span><strong id="finished-count">0</strong><span class="stat-foot">STORIES COMPLETED</span></article><div class="strip-note">NO RUSH.<br>JUST READ.</div></section>
+<section class="library-section" id="shelf" aria-labelledby="shelf-heading"><div class="section-topline"><span>02 / THE COLLECTION</span><span>YOUR SPACE, YOUR PACE ↘</span></div><div class="library-heading"><div><p class="eyebrow dark-eyebrow">WHAT'S ON YOUR MIND?</p><h2 id="shelf-heading">The <span>bookshelf.</span></h2></div><label class="search-box" for="book-search"><span aria-hidden="true">⌕</span><input id="book-search" type="search" placeholder="Find a title or author..." autocomplete="off"></label></div>
+<div class="library-layout"><aside class="add-panel" id="add-book" aria-labelledby="add-heading"><div class="form-top"><span class="form-number">01</span><span class="form-tag">ADD SOMETHING NEW</span></div><h3 id="add-heading">What's next<br>on your list?</h3><p class="form-intro">Every great reading habit starts with one book.</p>
+<form id="book-form" novalidate><label for="book-title">BOOK TITLE <span aria-hidden="true">*</span></label><input id="book-title" name="title" type="text" placeholder="The Midnight Library" maxlength="160" required><small class="field-error" id="title-error"></small><label for="book-author">AUTHOR <span aria-hidden="true">*</span></label><input id="book-author" name="author" type="text" placeholder="Matt Haig" maxlength="120" required><small class="field-error" id="author-error"></small><label for="book-status">WHERE ARE YOU WITH IT?</label><select id="book-status" name="status"><option value="To read">To read</option><option value="Reading">Reading</option><option value="Finished">Finished</option></select><button class="primary-button" type="submit">ADD TO MY SHELF <span aria-hidden="true">↗</span></button><p class="form-note">Saved automatically in this browser.</p><p class="form-message" id="form-message" role="status" aria-live="polite"></p></form><div class="panel-decoration" aria-hidden="true">✳</div></aside>
+<div class="shelf-panel"><div class="shelf-toolbar"><div class="shelf-title-group"><span class="tiny-label">YOUR PERSONAL ARCHIVE</span><h3>All the good stuff <span class="shelf-count" id="shelf-count">0</span></h3></div><span class="sort-note">NEWEST FIRST ↓</span></div><div class="filter-row" role="group" aria-label="Filter books by status"><button class="filter-button active" type="button" data-filter="All" aria-pressed="true">Everything</button><button class="filter-button" type="button" data-filter="To read" aria-pressed="false">To read</button><button class="filter-button" type="button" data-filter="Reading" aria-pressed="false">Reading</button><button class="filter-button" type="button" data-filter="Finished" aria-pressed="false">Finished</button></div><div id="book-list" class="book-list" aria-live="polite"></div><div id="empty-state" class="empty-state"><span class="empty-icon" aria-hidden="true">✳</span><h3>It's a blank page.</h3><p>Add a book and give this shelf its first story.</p></div><div id="no-results" class="empty-state hidden"><span class="empty-icon" aria-hidden="true">⌕</span><h3>Nothing on this page.</h3><p>Try another title, author, or status filter.</p><button class="text-button" id="clear-search" type="button">RESET SEARCH ↗</button></div><div class="shelf-bottom-note"><span>KEEP YOUR CURIOSITY CLOSE.</span><span aria-hidden="true">✳</span></div></div></div></section>
+</main><footer class="footer"><a class="footer-brand" href="./">OPEN CHAPTER<span>®</span></a><span>MADE FOR THE LOVE OF GETTING LOST IN A BOOK.</span><a href="#page-title">BACK TO TOP ↑</a></footer></div>
+<template id="book-template"><article class="book-row"><div class="book-cover" aria-hidden="true"><span class="cover-mark">OC</span><span class="cover-lines"></span><span class="cover-star">✳</span></div><div class="book-info"><p class="book-added"></p><h4 class="book-title"></h4><p class="book-author"></p></div><div class="book-actions"><label class="sr-only book-status-label">Reading status</label><select class="status-select" aria-label="Change reading status"><option value="To read">To read</option><option value="Reading">Reading</option><option value="Finished">Finished</option></select><button class="delete-button" type="button" aria-label="Delete book" title="Delete book">×</button></div></article></template>
+</body></html>
